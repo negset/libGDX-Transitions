@@ -9,8 +9,7 @@ object DesktopLauncher
     @JvmStatic
     fun main(arg: Array<String>)
     {
-        val config = LwjglApplicationConfiguration()
-        config.apply {
+        val config = LwjglApplicationConfiguration().apply {
             resizable = true
         }
         LwjglApplication(TransitionTest(), config)
