@@ -22,18 +22,18 @@ class TransitionTest : MyGame(WIDTH, HEIGHT)
         Gdx.app.logLevel = Logger.DEBUG
         Gdx.input.isCatchBackKey = true
 
-        transition = ColorFadeTransition(Color.BLACK, Interpolation.exp10, 3f)
-
         transitions.run {
-            add(AlphaFadingTransition())
-            add(SlidingTransition(SlidingTransition.Direction.LEFT, Interpolation.linear, true))
-            add(SlidingTransition(SlidingTransition.Direction.UP, Interpolation.bounce, false))
-            add(SlicingTransition(SlicingTransition.Direction.UP_DOWN, 128, Interpolation.pow4))
-            add(SlicingTransition(SlicingTransition.Direction.DOWN, 8, Interpolation.bounce))
+            add(AlphaFadingTransition(3f))
+            add(ColorFadeTransition(Color.WHITE, Interpolation.sine))
             add(RotatingTransition(Interpolation.pow2Out, 720f, RotatingTransition.TransitionScaling.OUT))
             add(RotatingTransition(Interpolation.bounce, 360f, RotatingTransition.TransitionScaling.IN))
-            add(ColorFadeTransition(Color.WHITE, Interpolation.sine))
+            add(SlicingTransition(SlicingTransition.Direction.UP_DOWN, 128, Interpolation.pow4))
+            add(SlicingTransition(SlicingTransition.Direction.DOWN, 8, Interpolation.bounce))
+            add(SlidingTransition(SlidingTransition.Direction.LEFT, Interpolation.linear, true))
+            add(SlidingTransition(SlidingTransition.Direction.UP, Interpolation.bounce, false))
         }
+
+        transition = transitions[0]
 
         screen = FirstScreen(this)
     }
