@@ -22,7 +22,6 @@ open class MyGame(private val width: Float, private val height: Float) : Applica
             {
                 Gdx.app.debug(MyGame::class.java.simpleName,
                         "Cannot change screen while transition in progress")
-                value?.dispose()
                 return
             }
 
@@ -61,7 +60,6 @@ open class MyGame(private val width: Float, private val height: Float) : Applica
             {
                 Gdx.app.debug(MyGame::class.java.simpleName,
                         "Cannot change transition while transition in progress")
-                value?.dispose()
                 return
             }
 
