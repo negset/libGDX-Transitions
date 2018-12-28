@@ -20,6 +20,7 @@ class TransitionTest : MyGame(WIDTH, HEIGHT)
         super.create()
 
         Gdx.app.logLevel = Logger.DEBUG
+        Gdx.input.isCatchBackKey = true
 
         transition = ColorFadeTransition(Color.BLACK, Interpolation.exp10, 3f)
 

@@ -38,13 +38,15 @@ class FirstScreen(private val game: TransitionTest) : ScreenAdapter()
 
         when
         {
-            Gdx.input.isKeyJustPressed(Input.Keys.ENTER) ->
+            Gdx.input.isKeyJustPressed(Input.Keys.ENTER)
+                    || Gdx.input.justTouched() ->
                 if (!game.transitionRunning)
                     game.screen = SecondScreen(game)
                 else
                     Gdx.app.debug(tag, "Cannot change screen while transition in progress")
 
-            Gdx.input.isKeyJustPressed(Input.Keys.RIGHT) ->
+            Gdx.input.isKeyJustPressed(Input.Keys.RIGHT)
+                    || Gdx.input.isKeyJustPressed(Input.Keys.BACK) ->
                 if (!game.transitionRunning)
                     game.switchTransition()
                 else
